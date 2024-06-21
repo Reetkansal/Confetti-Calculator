@@ -1,6 +1,6 @@
 {
-  "short_name": "Calculator",
-  "name": "Calculator",
+  "short_name": "Confetti-Calculator",
+  "name": "Confetti Calculator",
   "icons": [{
     "src": "icons/icon-128x128.png",
       "sizes": "128x128",
