@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+
 }
 
 *,
@@ -7,12 +8,28 @@ html {
 *::after {
   box-sizing: inherit;
 }
-a, button, input, textarea {
-  -webkit-tap-highlight-color: rgba(0,0,0,0)
+
+a,
+button,
+input,
+textarea {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+}
+
+.toggleBtn {
+  height: 60px;
+  width: 60px;
+  padding: 3px;
+  border-radius: 50%;
+  border: 1px solid grey;
+  align-items: center;
+  z-index: 1;
+  position: sticky;
 }
 
 button {
   -webkit-appearance: none;
+  appearance: none;
   box-shadow: none;
   border: none;
 }

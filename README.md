@@ -53,10 +53,3 @@ A calculator app built with React. The functionality and design are based on App
 | + | Add the next value entered to the displayed  value |
 | - | Subtract  the next value entered from the displayed value |
 | x | Multiply displayed value by next value entered |
-
-
-### Live Demo:
-https://lukepeavey.github.io/calculator/
-
-### CodeSandbox Demo (with FCC Test suite)
-https://codesandbox.io/s/m480mov5y8?view=preview

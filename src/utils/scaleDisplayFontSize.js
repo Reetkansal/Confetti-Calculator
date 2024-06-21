@@ -6,7 +6,7 @@
  * @param {String} mode - the current mode (basic|[])
  * @returns {String} css fontSize value
  */
-export default function(value, mode) {
+export default function (value, mode) {
   let overflow = value.slice(mode === 'basic' ? 12 : 32).length
   return mode === 'basic'
     ? `${100 - overflow * (overflow < 11 ? 5 : 4)}%`
