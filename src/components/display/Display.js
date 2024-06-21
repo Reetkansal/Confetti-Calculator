@@ -1,7 +1,7 @@
 import React from 'react'
 import scaleDisplayFontSize from '../../utils/scaleDisplayFontSize'
 import './Display.css'
-
+// to display result
 const Display = ({ value = '0', trigUnit, mode }) => {
   // scales fontSize based on length of display value
   let fontSize = scaleDisplayFontSize(value, mode)

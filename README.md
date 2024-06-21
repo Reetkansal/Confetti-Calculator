@@ -6,7 +6,6 @@ A calculator app built with React. The functionality and design are based on App
 - Can be installed as a mobile app (Android/windows only)
 - On mobile, the calculator mode is set based on device orientation... rotating device to landscape switches to scientific mode, portrait for basic mode.
 
-![image](screenshots/screenshot-scientific.png)
 
 
 #### Scientific Keys

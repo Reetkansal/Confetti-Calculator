@@ -10,6 +10,7 @@ const keypads = {
     [key.one, key.two, key.three, key.add],
     [key.zero, key.decimal, key.equals]
   ],
+  // scientific keypad
   scientific: [
     [
       key.openParenthesis,

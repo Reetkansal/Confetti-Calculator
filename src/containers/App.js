@@ -14,8 +14,32 @@ const AppContainer = () => {
     trigUnit: 'deg',
     memory: null,
   })
-  const [isExploding, setIsExploding] = useState(false) // confetti state
+  const [isExploding, setIsExploding] = useState(false)
+  const [mode, setMode] = useState(false) //0 means light 1 means dark mode
+  const bg = document.getElementById('.App')
+  useEffect(() => {
+    setIsExploding(false)
+    setMode(false)
+  }, [])
+  useEffect(() => {
+    toggleMode()
+  }, [mode])
 
+  const handleToggle = () => {
+    setMode((prevstate) => !prevstate)
+  }
+  const toggleMode = () => {
+    const bg = document.querySelector('.App')
+    const display = document.querySelector('.Display')
+
+    if (mode === true) {
+      bg.setAttribute('style', 'background-color: #1C1C1C')
+      display.setAttribute('style', 'background-color: white; color: #1C1C1C;')
+    } else {
+      bg.removeAttribute('style')
+      display.removeAttribute('style')
+    }
+  }
   const handleNumberKey = (key) => {
     const { displayValue: prevDisplayValue, resetDisplayValueOnNextKeyPress } =
       state
@@ -179,10 +203,9 @@ const AppContainer = () => {
   }
 
   return (
-    <div className="pop-up">
-      {
-        //confetti explosion
-        isExploding && (
+    <>
+      <div className="pop-up">
+        {isExploding && (
           <ConfettiExplosion
             onComplete={() => setIsExploding(false)}
             particleCount={400}
@@ -191,8 +214,125 @@ const AppContainer = () => {
             force={1}
             duration={3000}
           />
-        )
-      }
+        )}
+      </div>
+      <div className="toggleBtn" onClick={handleToggle}>
+        {mode ? (
+          <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+            <rect fill="none" height="256" width="256" />
+            <circle
+              cx="128"
+              cy="128"
+              fill="none"
+              r="60"
+              stroke="#000"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="16"
+            />
+            <line
+              fill="none"
+              stroke="#000"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="16"
+              x1="128"
+              x2="128"
+              y1="36"
+              y2="16"
+            />
+            <line
+              fill="none"
+              stroke="#000"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="16"
+              x1="62.9"
+              x2="48.8"
+              y1="62.9"
+              y2="48.8"
+            />
+            <line
+              fill="none"
+              stroke="#000"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="16"
+              x1="36"
+              x2="16"
+              y1="128"
+              y2="128"
+            />
+            <line
+              fill="none"
+              stroke="#000"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="16"
+              x1="62.9"
+              x2="48.8"
+              y1="193.1"
+              y2="207.2"
+            />
+            <line
+              fill="none"
+              stroke="#000"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="16"
+              x1="128"
+              x2="128"
+              y1="220"
+              y2="240"
+            />
+            <line
+              fill="none"
+              stroke="#000"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="16"
+              x1="193.1"
+              x2="207.2"
+              y1="193.1"
+              y2="207.2"
+            />
+            <line
+              fill="none"
+              stroke="#000"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="16"
+              x1="220"
+              x2="240"
+              y1="128"
+              y2="128"
+            />
+            <line
+              fill="none"
+              stroke="#000"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="16"
+              x1="193.1"
+              x2="207.2"
+              y1="62.9"
+              y2="48.8"
+            />
+          </svg>
+        ) : (
+          <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+            <rect fill="none" height="256" width="256" />
+            <path
+              d="M216.7,152.6A91.9,91.9,0,0,1,103.4,39.3h0A92,92,0,1,0,216.7,152.6Z"
+              fill="none"
+              stroke="#000"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="16"
+            />
+          </svg>
+        )}
+      </div>
       <App
         keys={keypads[state.mode]}
         currentOperation={state.currentOperation}
@@ -202,7 +342,7 @@ const AppContainer = () => {
         memory={state.memory}
         handleClick={handleClick}
       />
-    </div>
+    </>
   )
 }
 
