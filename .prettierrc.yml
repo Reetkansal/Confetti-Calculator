@@ -6,3 +6,4 @@ overrides:
 - files: "src/constants/keys.js"
   options:
     printWidth: 120
+debugCheck: false
